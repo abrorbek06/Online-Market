@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
               const Align(
                 alignment: Alignment.topLeft,
                 child: Text(
-                  "Newest Arrival",
+                  "Newest Arrical",
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
                 ),
               ),
