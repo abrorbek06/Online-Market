@@ -18,7 +18,9 @@ class _CodeScreenState extends State<CodeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: AppBar(
+        backgroundColor: AppColors.white,
         elevation: 0,
         leading: GestureDetector(
           onTap: () {
@@ -58,7 +60,6 @@ class _CodeScreenState extends State<CodeScreen> {
                 autoFocus: true,
                 errorTextDirection: TextDirection.ltr,
                 onChanged: ((value) {
-                  print(value);
                 }),
                 textStyle: const TextStyle(
                     fontSize: 16, fontWeight: FontWeight.normal),
@@ -78,9 +79,9 @@ class _CodeScreenState extends State<CodeScreen> {
                 ),
               ),
               const SizedBox(height: 35),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     "Don’t receive a OTP? ",
                     style: TextStyle(
@@ -104,7 +105,7 @@ class _CodeScreenState extends State<CodeScreen> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
+                      builder: (context) => const HomeScreen(),
                     ),
                   );
                 },

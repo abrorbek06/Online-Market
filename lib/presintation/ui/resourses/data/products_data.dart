@@ -28,4 +28,8 @@ List<ProductsData> productsdata = const [
       title: "Traviling Bag", money: "\$95,00", image: AppImages.travilingBag),
   ProductsData(
       title: "Sport Shoes", money: "\$120,00", image: AppImages.sportShoes),
+  ProductsData(
+      title: "Shoes", money: "\$220,00", image: AppImages.bag),
+  ProductsData(
+      title: "asdads", money: "\$220,00", image: AppImages.sportShoes),
 ];

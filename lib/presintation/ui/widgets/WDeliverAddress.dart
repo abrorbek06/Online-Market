@@ -17,29 +17,26 @@ class _WDeliverAddressState extends State<WDeliverAddress> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: AppColors.reviewDisebledColor),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                widget.title,
-                style: AppStyles.getOnboardingTitle().copyWith(fontSize: 16),
-              ),
-              const SizedBox(height: 16),
-              Text(
-                widget.content,
-                style: AppStyles.getAdressContent(),
-              ),
-            ],
-          ),
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.reviewDisebledColor),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.title,
+              style: AppStyles.getOnboardingTitle().copyWith(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              widget.content,
+              style: AppStyles.getAdressContent(),
+            ),
+          ],
         ),
       ),
     );
-    ;
   }
 }

@@ -27,38 +27,36 @@ class _WProductsState extends State<WProducts> {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => ProductScreen(),
+              builder: (context) => ProductScreen(image: widget.image, title: widget.title, price: widget.money),
             ),
           );
         },
-        child: Container(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 150,
-                height: 150,
-                color: Colors.grey.shade200,
-                child: Image.asset(widget.image),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 150,
+              height: 150,
+              color: Colors.grey.shade200,
+              child: Image.asset(widget.image),
+            ),
+            const SizedBox(height: 20),
+            _getStars(3),
+            const SizedBox(height: 10),
+            Text(
+              widget.title,
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              widget.money,
+              style: const TextStyle(
+                color: AppColors.mainColor,
+                fontWeight: FontWeight.w800,
+                fontSize: 16,
               ),
-              const SizedBox(height: 20),
-              _getStars(3),
-              const SizedBox(height: 10),
-              Text(
-                widget.title,
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                widget.money,
-                style: const TextStyle(
-                  color: AppColors.mainColor,
-                  fontWeight: FontWeight.w800,
-                  fontSize: 16,
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

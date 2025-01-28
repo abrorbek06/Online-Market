@@ -2,10 +2,12 @@ import 'package:dokon/presintation/ui/resourses/colors/app_colors.dart';
 import 'package:dokon/presintation/ui/resourses/data/category_data.dart';
 import 'package:dokon/presintation/ui/resourses/data/products_data.dart';
 import 'package:dokon/presintation/ui/resourses/styles/app_styles.dart';
+import 'package:dokon/presintation/ui/screens/body/primary_screens/Account/my_account.dart';
 import 'package:dokon/presintation/ui/widgets/category_list.dart';
 import 'package:dokon/presintation/ui/widgets/products.dart';
 import 'package:dokon/presintation/ui/widgets/title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../resourses/images/app_images.dart';
 
@@ -22,6 +24,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       key: _key,
       appBar: _getAppBar(),
       body: SingleChildScrollView(
@@ -30,12 +33,12 @@ class _HomeState extends State<Home> {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-              const SizedBox(height: 20),
+              const SizedBox(height: 4),
               _getSearch(),
               _getSizedBox24(),
               _getCategory(),
-              // _getSizedBox24(),
-              const SizedBox(height: 24),
+              _getSizedBox24(),
+              const SizedBox(height: 8),
               const Align(
                 alignment: Alignment.topLeft,
                 child: Text(
@@ -44,13 +47,10 @@ class _HomeState extends State<Home> {
                 ),
               ),
               const SizedBox(height: 12),
-              Align(
-                alignment: Alignment.center,
-                child: SizedBox(
-                  width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.4,
-                  child: _getProducts(),
-                ),
+              SizedBox(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * 0.54,
+                child: _getProducts(),
               ),
             ],
           ),
@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  _getSizedBox24() => const SizedBox(height: 24);
+  _getSizedBox24() => const SizedBox(height: 16);
 
   _getAppBar() => AppBar(
         automaticallyImplyLeading: false,
@@ -80,15 +80,21 @@ class _HomeState extends State<Home> {
                 ),
               ),
               const WTitle(fontSize: 28),
-              const CircleAvatar(
-                backgroundColor: AppColors.lightGray,
-                backgroundImage: NetworkImage(
-                    "https://www.goodmorningimagesdownload.com/wp-content/uploads/2021/12/Best-Quality-Profile-Images-Pic-Download-2023.jpg"),
+              GestureDetector(
+                onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const MyAccount()));
+                },
+                child: const CircleAvatar(
+                  backgroundColor: AppColors.lightGray,
+                  backgroundImage: AssetImage(
+                    "assets/profile.png",
+                  ),
+                ),
               ),
             ],
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
       );
 
@@ -103,16 +109,17 @@ class _HomeState extends State<Home> {
         ),
       );
   _getDrawer() => Drawer(
-          child: ListView(
+      backgroundColor: AppColors.white,
+      child: ListView(
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 100),
-              Image.asset(AppImages.logo, width: 89),
+              const SizedBox(height: 40),
+              SvgPicture.asset(AppImages.logo, width: 89),
               const SizedBox(height: 28),
               const WTitle(fontSize: 28),
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Divider(
@@ -120,7 +127,7 @@ class _HomeState extends State<Home> {
                   color: Color(0xFFCCCCCC),
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
             ],
           ),
           _getMenuItem(text: "Reward", icon: AppImages.gift),
@@ -130,45 +137,41 @@ class _HomeState extends State<Home> {
           _getMenuItem(text: "Logout", icon: AppImages.longOut),
         ],
       ));
-  _getSearch() => Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade300,
-              blurRadius: 16,
-              spreadRadius: 1,
-            ),
-          ],
-        ),
+  _getSearch() => SizedBox(
+        height: 50,
         child: TextField(
           textInputAction: TextInputAction.search,
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white,
+            fillColor: AppColors.white,
             contentPadding: const EdgeInsets.only(left: 10),
             hintText: "Search \"Smartphone\"",
-            hintStyle: TextStyle(
-                color: Colors.grey.shade400, fontWeight: FontWeight.w500),
+            hintStyle: const TextStyle(
+              color: AppColors.lightGray,
+              fontWeight: FontWeight.w500,
+            ),
             prefixIcon: const Icon(Icons.search),
             suffixIcon: IconButton(
               onPressed: () {},
               icon: Image.asset(AppImages.scan),
             ),
             enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(90),
-                borderSide: const BorderSide(
-                  color: Colors.transparent,
-                )),
+              borderRadius: BorderRadius.circular(90),
+              borderSide: const BorderSide(
+                color: AppColors.lightGray,
+              ),
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(28),
-              borderSide: const BorderSide(color: Colors.red),
+              borderSide: const BorderSide(color: AppColors.mainColor),
             ),
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide(
-                  color: Colors.grey.shade100,
-                  width: 4,
-                )),
+              borderRadius: BorderRadius.circular(28),
+              borderSide: const BorderSide(
+                color: AppColors.lightGray,
+                width: 1,
+              ),
+            ),
           ),
         ),
       );
@@ -190,25 +193,26 @@ class _HomeState extends State<Home> {
             physics: const BouncingScrollPhysics(),
             child: Row(
               children: List.generate(
-                  categories.length,
-                  (index) => Padding(
-                        padding: EdgeInsets.only(
-                            right: categories.length - 1 != index ? 12.0 : 0),
-                        child: WCategoyr(
-                          title: categories[index].title,
-                          image: categories[index].image,
-                        ),
-                      )),
+                categories.length,
+                (index) => Padding(
+                  padding: EdgeInsets.only(
+                      right: categories.length - 1 != index ? 12.0 : 0),
+                  child: WCategoyr(
+                    title: categories[index].title,
+                    image: categories[index].image,
+                  ),
+                ),
+              ),
             ),
           ),
         ],
       );
   _getProducts() => GridView(
+        padding: const EdgeInsets.only(left: 0),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          mainAxisSpacing: 16,
           crossAxisSpacing: 16,
-          mainAxisExtent: 300,
+          mainAxisExtent: 320,
         ),
         children: List.generate(
           productsdata.length,

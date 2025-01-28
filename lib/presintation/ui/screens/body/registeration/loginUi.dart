@@ -1,5 +1,8 @@
 import 'package:dokon/presintation/ui/screens/home/home_screen.dart';
+import 'package:dokon/presintation/ui/widgets/button.dart';
+import 'package:dokon/presintation/ui/widgets/textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../resourses/colors/app_colors.dart';
 import '../../../resourses/images/app_images.dart';
@@ -17,14 +20,15 @@ class _LoginUi extends State<LoginUi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.only(right: 30,left: 30, top: 70),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(
+              SvgPicture.asset(
                 AppImages.logo,
                 width: 89,
                 height: 101,
@@ -40,44 +44,9 @@ class _LoginUi extends State<LoginUi> {
                 style: TextStyle(color: Colors.grey, fontSize: 18),
               ),
               const SizedBox(height: 35),
-              TextField(
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  label: const Text("Email address"),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey.shade300),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 4,
-                    ),
-                  ),
-                ),
-              ),
+              TextFeild(title: 'Email address'),
               const SizedBox(height: 25),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  label: const Text("Password"),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(color: Colors.red),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 4,
-                    ),
-                  ),
-                ),
-              ),
+              TextFeild(title: 'Password'),
               const SizedBox(height: 20),
               GestureDetector(
                 onTap: () => Navigator.of(context).push(
@@ -97,28 +66,7 @@ class _LoginUi extends State<LoginUi> {
                   ),
                 ),
               ),
-              const SizedBox(height: 45),
-              GestureDetector(
-                onTap: () =>
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (c) => const HomeScreen(),
-                )),
-                child: Container(
-                  width: 368,
-                  height: 55,
-                  color: AppColors.mainColor,
-                  child: const Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              ButtonPushReplace(title: "Login", screen: const HomeScreen()), const SizedBox(height: 45),
               const SizedBox(height: 30),
               const Text(
                 "Or",
@@ -129,51 +77,10 @@ class _LoginUi extends State<LoginUi> {
               ),
               const SizedBox(height: 30),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      width: 130,
-                      height: 55,
-                      decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey.shade300)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image.asset(AppImages.google),
-                          const Text(
-                            "Google",
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 40),
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                        width: 130,
-                        height: 55,
-                        decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey.shade300)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Image.asset(AppImages.facebook),
-                            const Text(
-                              "Facebook",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                              ),
-                            ),
-                          ],
-                        )),
-                  ),
+                  _Internet("Google", AppImages.google),
+                  _Internet("Facebook", AppImages.facebook),
                 ],
               ),
               const SizedBox(height: 30),
@@ -213,4 +120,27 @@ class _LoginUi extends State<LoginUi> {
       ),
     );
   }
+  _Internet(String title, String image) =>
+      GestureDetector(
+        onTap: () {},
+        child: Container(
+          width: 130,
+          height: 55,
+          decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey.shade300)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.asset(image),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
 }

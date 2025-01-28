@@ -21,6 +21,7 @@ class _DeliveryInformationState extends State<DeliveryInformationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: _appBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -29,36 +30,34 @@ class _DeliveryInformationState extends State<DeliveryInformationScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              Container(
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Delivery Information :",
-                          style: AppStyles.getDrawbar().copyWith(fontSize: 20),
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Delivery Information :",
+                        style: AppStyles.getDrawbar().copyWith(fontSize: 20),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const DeliveryAddress(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Change",
+                          style: AppStyles.getActionStyle(),
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (_) => const DeliveryAddress(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            "Change",
-                            style: AppStyles.getActionStyle(),
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: 18),
-                    _getDeliveryInfo(),
-                    const SizedBox(height: 30),
-                  ],
-                ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 18),
+                  _getDeliveryInfo(),
+                  const SizedBox(height: 30),
+                ],
               ),
               Text(
                 "Recent Delivery Address :",
@@ -100,12 +99,12 @@ class _DeliveryInformationState extends State<DeliveryInformationScreen> {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (_) => PaymentMethod(),
+              builder: (_) => const PaymentMethod(),
             ),
           );
         },
         child: Container(
-          margin: EdgeInsets.all(16),
+          margin: const EdgeInsets.all(16),
           width: 368,
           height: 55,
           color: AppColors.mainColor,
@@ -122,6 +121,7 @@ class _DeliveryInformationState extends State<DeliveryInformationScreen> {
   }
 
   _appBar() => AppBar(
+    backgroundColor: AppColors.white,
         elevation: 1,
         leading: GestureDetector(
           onTap: () {
@@ -166,7 +166,7 @@ class _DeliveryInformationState extends State<DeliveryInformationScreen> {
                             onTap: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (context) => EditAddressScreen(),
+                                  builder: (context) => const EditAddressScreen(),
                                 ),
                               );
                             },
@@ -197,7 +197,7 @@ United States""",
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (_) => AddAdress(),
+                  builder: (_) => const AddAdress(),
                 ),
               );
             },

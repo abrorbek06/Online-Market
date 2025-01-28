@@ -2,9 +2,12 @@ import 'package:dokon/presintation/ui/resourses/styles/app_styles.dart';
 import 'package:dokon/presintation/ui/widgets/WOrders.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../resourses/colors/app_colors.dart';
 import '../../../../resourses/data/products_data.dart';
 
 class MyOrders extends StatefulWidget {
+  const MyOrders({super.key});
+
   @override
   State<MyOrders> createState() => _MyOrdersState();
 }
@@ -14,38 +17,33 @@ class _MyOrdersState extends State<MyOrders> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: _appBar(),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: SizedBox(
-                width: double.infinity,
-                child: Column(
-                  children: _getProducts(),
-                ),
-              ),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            children: _getProducts(),
+          ),
         ),
       ),
     );
   }
 
   _appBar() => AppBar(
-        elevation: 1,
+    backgroundColor: AppColors.white,
+        elevation: 0,
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
             Navigator.of(context).pop();
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios,
           ),
         ),
         title: Text(
-          "Edit Address",
+          "My Orders",
           style: AppStyles.getOnboardingTitle().copyWith(fontSize: 20),
         ),
       );

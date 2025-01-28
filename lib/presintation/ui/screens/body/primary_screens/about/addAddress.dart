@@ -16,6 +16,7 @@ class _AddAdressState extends State<AddAdress> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: _appBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
@@ -35,7 +36,7 @@ Shipping Address""",
                     .copyWith(color: AppColors.DetailsElementColor),
               ),
               const SizedBox(height: 40),
-              WAbout(),
+              const WAbout(),
             ],
           ),
         ),
@@ -64,6 +65,7 @@ Shipping Address""",
         ),
       );
   _appBar() => AppBar(
+    backgroundColor: AppColors.white,
         elevation: 1,
         leading: GestureDetector(
           onTap: () {

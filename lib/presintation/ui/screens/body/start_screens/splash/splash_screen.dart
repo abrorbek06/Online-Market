@@ -1,6 +1,8 @@
 import 'package:dokon/presintation/ui/resourses/images/app_images.dart';
 import 'package:dokon/presintation/ui/screens/body/start_screens/onBoarding/onboarding_screen.dart';
+import 'package:dokon/presintation/ui/widgets/title.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../resourses/colors/app_colors.dart';
 
@@ -29,35 +31,37 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColors.white,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const SizedBox(),
             Column(
               children: [
-                Image.asset(AppImages.logo),
+                SvgPicture.asset(AppImages.logo),
                 const SizedBox(height: 40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text(
-                      "Swip",
-                      style: TextStyle(
-                        color: Color(0xFFF13005),
-                        fontWeight: FontWeight.w800,
-                        fontSize: 38,
-                      ),
-                    ),
-                    Text(
-                      "wide",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 38,
-                      ),
-                    ),
-                  ],
-                ),
+                const WTitle()
+                // const Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     Text(
+                //       "Swip",
+                //       style: TextStyle(
+                //         color: Color(0xFFF13005),
+                //         fontWeight: FontWeight.w800,
+                //         fontSize: 38,
+                //       ),
+                //     ),
+                //     Text(
+                //       "wide",
+                //       style: TextStyle(
+                //         color: Colors.black,
+                //         fontWeight: FontWeight.w800,
+                //         fontSize: 38,
+                //       ),
+                //     ),
+                //   ],
+                // ),
               ],
             ),
             Row(

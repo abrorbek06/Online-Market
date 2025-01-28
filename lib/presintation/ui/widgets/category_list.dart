@@ -18,8 +18,8 @@ class _WCategoyrState extends State<WCategoyr> {
       child: Column(
         children: [
           Container(
-            width: 70,
-            height: 70,
+            width: 60,
+            height: 60,
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.grey.shade300),
                 shape: BoxShape.circle),

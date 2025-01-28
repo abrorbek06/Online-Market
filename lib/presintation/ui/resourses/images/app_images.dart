@@ -27,7 +27,6 @@ abstract class AppImages {
   static const String onboarding_3 = "$path/onboarding_3.png";
   static const String laptop = "$path/Laptop.png";
   static const String loader = "$path/Loader.png";
-  static const String logo = "$path/Logo.png";
   static const String menu = "$path/Menu.png";
   static const String mobile = "$path/Mobile.png";
   static const String scan = "$path/Scan.png";
@@ -43,15 +42,22 @@ abstract class AppImages {
   static const String toys = "$path/Toys.png";
   static const String travilingBag = "$path/TravilingBag.png";
 
-  static const String account1 = "$path/Account1.png";
-  static const String account2 = "$path/Account2.png";
 
-  static const String home1 = "$path/Home1.png";
-  static const String home2 = "$path/Home2.png";
+  static const String path2 = "assets/svg_icons";
 
-  static const String wishlist1 = "$path/Wishlist1.png";
-  static const String wishlist2 = "$path/Wishlist2.png";
+  static const String account1 = "$path2/account1.svg";
+  static const String account2 = "$path2/account2.svg";
 
-  static const String cart1 = "$path/Cart1.png";
-  static const String cart2 = "$path/Cart2.png";
+  static const String home1 = "$path2/home1.svg";
+  static const String home2 = "$path2/home2.svg";
+
+  static const String wishlist1 = "$path2/wishlist1.svg";
+  static const String wishlist2 = "$path2/wishlist2.svg";
+
+  static const String cart1 = "$path2/cart1.svg";
+  static const String cart2 = "$path2/cart2.svg";
+
+  static const String logo = "$path2/logo.svg";
+
+
 }

@@ -21,6 +21,7 @@ class _ChackoutScreenState extends State<ChackoutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: _appBar(),
       body: SingleChildScrollView(
         child: Padding(
@@ -36,11 +37,11 @@ class _ChackoutScreenState extends State<ChackoutScreen> {
                 if (model.errors.isNotEmpty) ...{
                   Center(
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                          color: Color(0xFFFFA3A3),
+                          color: const Color(0xFFFFA3A3),
                           borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: Color(0xFFE34A4A))),
+                          border: Border.all(color: const Color(0xFFE34A4A))),
                       child: Column(
                         children: List.generate(
                           model.errors.length,
@@ -55,11 +56,11 @@ class _ChackoutScreenState extends State<ChackoutScreen> {
                 if (model.message.isNotEmpty) ...{
                   Center(
                     child: Container(
-                      padding: EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
-                          color: Color(0xFF69E38B),
+                          color: const Color(0xFF69E38B),
                           borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: Color(0xFF1DA658))),
+                          border: Border.all(color: const Color(0xFF1DA658))),
                       child: Text(model.message),
                     ),
                   )
@@ -99,7 +100,10 @@ class _ChackoutScreenState extends State<ChackoutScreen> {
                     margin: const EdgeInsets.all(16),
                     width: 368,
                     height: 50,
-                    color: AppColors.mainColor,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: AppColors.mainColor,
+                    ),
                     child: Align(
                       alignment: Alignment.center,
                       child: Text(
@@ -178,6 +182,7 @@ class _ChackoutScreenState extends State<ChackoutScreen> {
   //       ),
   //     );
   _appBar() => AppBar(
+    backgroundColor: AppColors.white,
         elevation: 1,
         centerTitle: true,
         leading: GestureDetector(

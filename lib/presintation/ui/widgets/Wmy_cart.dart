@@ -58,7 +58,7 @@ class _WMyCartState extends State<WMyCart> {
               const SizedBox(height: 10),
               Text(
                 widget.title,
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
               ),
               const SizedBox(height: 10),
               _getStars(2),

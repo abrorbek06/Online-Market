@@ -17,9 +17,10 @@ class _DeliveryAddressState extends State<DeliveryAddress> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: _appBar(),
       body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,6 +42,7 @@ class _DeliveryAddressState extends State<DeliveryAddress> {
   }
 
   _appBar() => AppBar(
+    backgroundColor: AppColors.white,
         elevation: 1,
         leading: GestureDetector(
           onTap: () {

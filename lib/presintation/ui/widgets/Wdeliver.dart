@@ -17,51 +17,47 @@ class WDeliver extends StatefulWidget {
 
 class _WDeliverState extends State<WDeliver> {
   final double height = 200.0;
-  _WDeliverState({height});
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Container(
-        width: 200,
-        height: height,
-        decoration: BoxDecoration(
-          border: Border.all(color: AppColors.reviewDisebledColor),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    widget.title,
-                    style:
-                        AppStyles.getOnboardingTitle().copyWith(fontSize: 16),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => EditAddressScreen(),
-                        ),
-                      );
-                    },
-                    child: Image.asset(AppImages.edit),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Text(
-                widget.content,
-                style: AppStyles.getAdressContent(),
-              ),
-            ],
-          ),
+      width: 200,
+      height: height,
+      decoration: BoxDecoration(
+        border: Border.all(color: AppColors.reviewDisebledColor),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  widget.title,
+                  style:
+                      AppStyles.getOnboardingTitle().copyWith(fontSize: 16),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const EditAddressScreen(),
+                      ),
+                    );
+                  },
+                  child: Image.asset(AppImages.edit),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              widget.content,
+              style: AppStyles.getAdressContent(),
+            ),
+          ],
         ),
       ),
     );
-    ;
   }
 }

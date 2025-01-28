@@ -9,10 +9,10 @@ class WTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text.rich(
       TextSpan(
-        text: "Swip",
+        text: "OTT ",
         children: [
           TextSpan(
-              text: "wide",
+              text: "Market",
               style: AppStyles.getLogoTextStyle().copyWith(
                 color: Colors.black,
                 fontSize: fontSize,

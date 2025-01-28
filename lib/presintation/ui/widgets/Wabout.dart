@@ -77,7 +77,7 @@ class _WAboutState extends State<WAbout> {
           ),
           const SizedBox(height: 12),
           Container(
-            padding: EdgeInsets.only(top: 17),
+            padding: const EdgeInsets.only(top: 17),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.reviewDisebledColor),
             ),

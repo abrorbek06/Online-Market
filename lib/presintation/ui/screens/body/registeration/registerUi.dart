@@ -1,4 +1,7 @@
+import 'package:dokon/presintation/ui/widgets/button.dart';
+import 'package:dokon/presintation/ui/widgets/textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../resourses/colors/app_colors.dart';
 import '../../../resourses/images/app_images.dart';
@@ -16,14 +19,13 @@ class _RegisterUiState extends State<RegisterUi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 14),
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 100),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(
+              SvgPicture.asset(
                 AppImages.logo,
                 width: 89,
                 height: 101,
@@ -39,88 +41,16 @@ class _RegisterUiState extends State<RegisterUi> {
                 style: TextStyle(color: Colors.grey, fontSize: 20),
               ),
               const SizedBox(height: 35),
-              TextField(
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  label: const Text("Email address"),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey.shade300),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 4,
-                    ),
-                  ),
-                ),
-              ),
+              TextFeild(title: "Email address"),
               const SizedBox(height: 22),
-              TextField(
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  label: const Text("Phone number"),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(color: Colors.red),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 4,
-                    ),
-                  ),
-                ),
-              ),
+              TextFeild(title: "Phone number"),
               const SizedBox(height: 22),
-              TextField(
-                textInputAction: TextInputAction.next,
-                obscureText: true,
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  label: const Text("Password"),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(color: Colors.red),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 4,
-                    ),
-                  ),
-                ),
-              ),
+              TextFeild(title: "Password"),
               const SizedBox(height: 22),
-              TextField(
-                textInputAction: TextInputAction.done,
-                obscureText: true,
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  label: const Text("Confirm password"),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(color: Colors.red),
-                  ),
-                  focusedBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.blue,
-                      width: 4,
-                    ),
-                  ),
-                ),
-              ),
+              TextFeild(title: "Confirm password"),
               const SizedBox(height: 20),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   Text(
                     "By signing below, you agree to the ",
                     style: TextStyle(
@@ -138,8 +68,8 @@ class _RegisterUiState extends State<RegisterUi> {
                   ),
                 ],
               ),
-              Row(
-                children: const [
+              const Row(
+                children: [
                   Text(
                     "and ",
                     style: TextStyle(
@@ -158,27 +88,8 @@ class _RegisterUiState extends State<RegisterUi> {
                 ],
               ),
               const SizedBox(height: 30),
-              GestureDetector(
-                onTap: () =>
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (c) => const HomeScreen(),
-                )),
-                child: Container(
-                  width: 368,
-                  height: 55,
-                  color: AppColors.mainColor,
-                  child: const Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Sing Up",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              ButtonPushReplace(title: "Sing Up", screen: const HomeScreen()),
+
               const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

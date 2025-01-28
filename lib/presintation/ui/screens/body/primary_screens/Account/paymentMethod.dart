@@ -4,17 +4,18 @@ import 'package:flutter/material.dart';
 import '../../../../resourses/images/app_images.dart';
 import '../../../../resourses/styles/app_styles.dart';
 
-class PaymentMethod extends StatefulWidget {
-  const PaymentMethod({Key? key}) : super(key: key);
+class PaymentMethods extends StatefulWidget {
+  const PaymentMethods({Key? key}) : super(key: key);
 
   @override
-  State<PaymentMethod> createState() => _PaymentMethodState();
+  State<PaymentMethods> createState() => _PaymentMethodsState();
 }
 
-class _PaymentMethodState extends State<PaymentMethod> {
+class _PaymentMethodsState extends State<PaymentMethods> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: _appBar(),
       body: SingleChildScrollView(
         child: Padding(
@@ -22,8 +23,8 @@ class _PaymentMethodState extends State<PaymentMethod> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(AppImages.card),
-              const SizedBox(height: 60),
+              SizedBox(width: double.infinity, child: Image.asset(AppImages.card, fit: BoxFit.cover,)),
+              const SizedBox(height: 30),
               _getTextFiled1(
                   title: "Card Holder Name", labelText: "Saul Goodmate"),
               _getTextFiled1(
@@ -41,6 +42,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
                 ],
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     width: 150,
@@ -77,17 +79,18 @@ class _PaymentMethodState extends State<PaymentMethod> {
   }
 
   _appBar() => AppBar(
+    backgroundColor: AppColors.white,
         elevation: 1,
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
             Navigator.of(context).pop();
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios,
           ),
         ),
-        title: Text(
+        title: const Text(
           "Payment Method",
           style: TextStyle(fontWeight: FontWeight.w700, fontSize: 22),
         ),

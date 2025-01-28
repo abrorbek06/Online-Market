@@ -1,4 +1,4 @@
-import 'package:dokon/presintation/ui/screens/body/primary_screens/about/delivery_Information.dart';
+import 'package:dokon/presintation/ui/screens/body/primary_screens/payment/payment_method.dart';
 import 'package:dokon/presintation/ui/widgets/Wmy_cart.dart';
 import 'package:flutter/material.dart';
 
@@ -17,10 +17,11 @@ class _MyCartState extends State<MyCart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        elevation: 1,
+        elevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         title: const Text(
           "Shopping Cart",
           style: TextStyle(
@@ -65,13 +66,13 @@ class _MyCartState extends State<MyCart> {
         children: [
           Container(
             height: 55,
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.greyShade),
             ),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
+              children: [
                 Text(
                   "Promocodes",
                   style: TextStyle(
@@ -149,14 +150,17 @@ class _MyCartState extends State<MyCart> {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const DeliveryInformationScreen(),
+                  builder: (context) => const PaymentMethod(),
                 ),
               );
             },
             child: Container(
               width: 360,
               height: 60,
-              color: AppColors.mainColor,
+              decoration: BoxDecoration(
+                color: AppColors.mainColor,
+                borderRadius: BorderRadius.circular(4)
+              ),
               child: const Align(
                 alignment: Alignment.center,
                 child: Text(

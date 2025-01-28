@@ -2,6 +2,7 @@ import 'package:dokon/presintation/ui/resourses/images/app_images.dart';
 import 'package:dokon/presintation/ui/screens/body/primary_screens/Account/my_account.dart';
 import 'package:dokon/presintation/ui/screens/body/primary_screens/my_cart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../resourses/colors/app_colors.dart';
 import '../body/primary_screens/Wishlist/wishlist.dart';
@@ -31,6 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         showSelectedLabels: false,
         selectedItemColor: AppColors.mainColor,
+
         onTap: (index) {
           setState(() {
             currentIndex = index;
@@ -38,25 +40,26 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset(
+            backgroundColor: AppColors.white,
+            icon: SvgPicture.asset(
               currentIndex == 0 ? AppImages.home2 : AppImages.home1,
             ),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
+            icon: SvgPicture.asset(
               currentIndex == 1 ? AppImages.wishlist2 : AppImages.wishlist1,
             ),
             label: "Wishlist",
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
+            icon: SvgPicture.asset(
               currentIndex == 2 ? AppImages.cart2 : AppImages.cart1,
             ),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Image.asset(
+            icon: SvgPicture.asset(
               currentIndex == 3 ? AppImages.account2 : AppImages.account1,
             ),
             label: "Home",

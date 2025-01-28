@@ -1,5 +1,8 @@
 import 'package:dokon/presintation/ui/resourses/images/app_images.dart';
+import 'package:dokon/presintation/ui/widgets/button.dart';
+import 'package:dokon/presintation/ui/widgets/textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../resourses/colors/app_colors.dart';
 import 'changePassword_screen.dart';
@@ -15,15 +18,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.only(right: 30, left: 30, top: 70),
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 40),
-              Image.asset(
+              SvgPicture.asset(
                 AppImages.logo,
                 width: 89,
                 height: 101,
@@ -38,7 +42,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 "Forgot your password",
                 style: TextStyle(color: Colors.grey, fontSize: 20),
               ),
-              const SizedBox(height: 80),
+              const SizedBox(height: 50),
               const Text(
                 "Please enter your email address below you will receive a link to create a new password via email",
                 style: TextStyle(
@@ -47,47 +51,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                 ),
               ),
               const SizedBox(height: 40),
-              TextField(
-                textInputAction: TextInputAction.done,
-                decoration: InputDecoration(
-                  contentPadding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-                  label: const Text("Email address"),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey.shade300),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0),
-                    borderSide: const BorderSide(
-                      color: Colors.blue,
-                      width: 4,
-                    ),
-                  ),
-                ),
-              ),
+              TextFeild(title: "Email address"),
               const SizedBox(height: 150),
-              GestureDetector(
-                onTap: () => Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (c) => const ChangePassword(),
-                  ),
-                ),
-                child: Container(
-                  width: 368,
-                  height: 55,
-                  color: AppColors.mainColor,
-                  child: const Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Constinue",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              ButtonPushReplace(title: "Continue", screen: const ChangePassword()),
             ],
           ),
         ),

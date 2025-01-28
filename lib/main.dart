@@ -23,10 +23,10 @@ class _MyAppState extends State<MyApp> {
       },
       builder: (context, child) {
         final provider = Provider.of<Providers>(context);
-        return MaterialApp(
-          theme: provider.themeMode,
+        return const MaterialApp(
+          // theme: provider.themeMode,
           debugShowCheckedModeBanner: false,
-          home: const SplashScreen(),
+          home: SplashScreen(),
         );
       },
     );

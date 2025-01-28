@@ -1,6 +1,8 @@
+import 'package:dokon/presintation/ui/resourses/colors/app_colors.dart';
 import 'package:dokon/presintation/ui/resourses/images/app_images.dart';
 import 'package:dokon/presintation/ui/widgets/products.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../resourses/data/products_data.dart';
 
@@ -15,10 +17,11 @@ class _WishlistState extends State<Wishlist> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: AppBar(
         centerTitle: true,
-        elevation: 1,
-        backgroundColor: Color(0xFFFFFFFF),
+        elevation: 0,
+        backgroundColor: AppColors.white,
         title: const Text(
           "Wishlist",
           style: TextStyle(
@@ -40,6 +43,7 @@ class _WishlistState extends State<Wishlist> {
             children: List.generate(
               productsdata.length,
               (index) => Stack(
+                alignment: const Alignment(0, 0),
                 children: [
                   WProducts(
                     title: productsdata[index].title,
@@ -47,9 +51,9 @@ class _WishlistState extends State<Wishlist> {
                     image: productsdata[index].image,
                   ),
                   Positioned(
-                    top: 12,
-                    right: 30,
-                    child: Image.asset(
+                    top: 16,
+                    right: 35,
+                    child: SvgPicture.asset(
                       AppImages.wishlist2,
                       width: 20,
                     ),

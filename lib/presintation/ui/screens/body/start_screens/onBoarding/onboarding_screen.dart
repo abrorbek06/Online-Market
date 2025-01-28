@@ -47,6 +47,7 @@ so that your customers.""",
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: AppColors.white,
       body: Column(
         children: [
           const SafeArea(child: SizedBox()),
@@ -73,7 +74,7 @@ so that your customers.""",
               alignment: Alignment.topRight,
               margin: const EdgeInsets.only(top: 30, right: 30),
               child: Text(
-                "Next",
+                page != onboardingData.length - 1 ? "Next" : "Done",
                 style: AppStyles.getActionStyle(),
               ),
             ),

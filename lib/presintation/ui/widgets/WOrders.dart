@@ -54,11 +54,9 @@ class _WOrdersState extends State<WOrders> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 10),
-              const SizedBox(height: 10),
               Text(
                 widget.title,
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
               ),
               const SizedBox(height: 10),
               _getStars(2),
@@ -142,18 +140,23 @@ class _WOrdersState extends State<WOrders> {
                       ),
                     ),
                   ),
-                  Container(
-                    width: 105,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: AppColors.reviewEnabledColor,
-                      borderRadius: BorderRadius.circular(70),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "No",
-                        style: AppStyles.getActionStyle()
-                            .copyWith(color: Colors.white, fontSize: 16),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).pop();
+                    },
+                    child: Container(
+                      width: 105,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: AppColors.reviewEnabledColor,
+                        borderRadius: BorderRadius.circular(70),
+                      ),
+                      child: Center(
+                        child: Text(
+                          "No",
+                          style: AppStyles.getActionStyle()
+                              .copyWith(color: Colors.white, fontSize: 16),
+                        ),
                       ),
                     ),
                   ),

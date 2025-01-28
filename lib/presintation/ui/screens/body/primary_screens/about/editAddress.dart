@@ -16,12 +16,13 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: _appBar(),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
           child: Column(
-            children: const [
+            children: [
               WAbout(),
             ],
           ),
@@ -32,7 +33,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
           Navigator.of(context).pop();
         },
         child: Container(
-          margin: EdgeInsets.all(16),
+          margin: const EdgeInsets.all(16),
           width: 368,
           height: 55,
           color: AppColors.mainColor,
@@ -49,6 +50,7 @@ class _EditAddressScreenState extends State<EditAddressScreen> {
   }
 
   _appBar() => AppBar(
+    backgroundColor: AppColors.white,
         elevation: 1,
         leading: GestureDetector(
           onTap: () {

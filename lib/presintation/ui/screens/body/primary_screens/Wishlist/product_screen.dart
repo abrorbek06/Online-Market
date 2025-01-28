@@ -1,11 +1,20 @@
 import 'package:dokon/presintation/ui/resourses/images/app_images.dart';
 import 'package:dokon/presintation/ui/resourses/styles/app_styles.dart';
+import 'package:dokon/presintation/ui/screens/home/home_screen.dart';
+import 'package:dokon/presintation/ui/widgets/button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../resourses/colors/app_colors.dart';
 
 class ProductScreen extends StatefulWidget {
-  const ProductScreen({Key? key}) : super(key: key);
+  final String title;
+  final String image;
+  final String price;
+  const ProductScreen({Key? key,
+    required this.title,
+    required this.price,
+    required this.image,}) : super(key: key);
 
   @override
   State<ProductScreen> createState() => _ProductScreenState();
@@ -18,6 +27,7 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.white,
       appBar: _appBar(),
       body: SingleChildScrollView(
         child: Padding(
@@ -32,7 +42,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Smart Watches",
+                        widget.title,
                         style: AppStyles.getDrawbar().copyWith(fontSize: 20),
                       ),
                       _getStars(4),
@@ -43,7 +53,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "\$120.0",
+                        widget.price,
                         style:
                             AppStyles.getLogoTextStyle().copyWith(fontSize: 20),
                       ),
@@ -84,20 +94,10 @@ class _ProductScreenState extends State<ProductScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: GestureDetector(
-        onTap: () {},
-        child: Container(
-          margin: EdgeInsets.all(16),
-          width: double.infinity,
-          color: AppColors.mainColor,
-          padding: EdgeInsets.all(16),
-          child: Text(
-            "Add To Cart",
-            style: AppStyles.getActionStyle().copyWith(color: Colors.white),
-            textAlign: TextAlign.center,
-          ),
-        ),
-      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ButtonPush(title: "Add To Cart", screen: const HomeScreen(),),
+      )
     );
   }
 
@@ -117,17 +117,16 @@ class _ProductScreenState extends State<ProductScreen> {
           },
           child: const Icon(
             Icons.arrow_back_ios_new,
-            color: Colors.black,
+            color: AppColors.black,
           ),
         ),
         elevation: 0,
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Image.asset(
+            child: SvgPicture.asset(
               AppImages.wishlist1,
               width: 20,
-              color: Colors.black,
             ),
           ),
         ],
@@ -166,11 +165,11 @@ class _ProductScreenState extends State<ProductScreen> {
           ),
         ),
       );
-  _getDivider() => Column(
+  _getDivider() => const Column(
         children: [
-          const SizedBox(height: 30),
-          const Divider(thickness: 1),
-          const SizedBox(height: 35),
+          SizedBox(height: 30),
+          Divider(thickness: 1),
+          SizedBox(height: 35),
         ],
       );
   _getSizedBox() => const SizedBox(height: 14);
@@ -206,7 +205,7 @@ class _ProductScreenState extends State<ProductScreen> {
             Container(
               color: Colors.transparent,
               child: Image.asset(
-                AppImages.mackBook,
+                widget.image,
                 width: 260,
                 height: 240,
               ),
