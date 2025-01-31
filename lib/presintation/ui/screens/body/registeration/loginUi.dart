@@ -22,8 +22,9 @@ class _LoginUi extends State<LoginUi> {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Padding(
-        padding: const EdgeInsets.only(right: 30,left: 30, top: 70),
-        child: SingleChildScrollView(
+        padding: const EdgeInsets.only(right: 30,left: 30),
+        child: Container(
+          alignment: const Alignment(0,0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
