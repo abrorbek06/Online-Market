@@ -208,11 +208,11 @@ class _HomeState extends State<Home> {
         ],
       );
   _getProducts() => GridView(
-        padding: const EdgeInsets.only(left: 0),
+        padding: const EdgeInsets.only(left: 20),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 16,
-          mainAxisExtent: 320,
+          mainAxisExtent: 280,
         ),
         children: List.generate(
           productsdata.length,
