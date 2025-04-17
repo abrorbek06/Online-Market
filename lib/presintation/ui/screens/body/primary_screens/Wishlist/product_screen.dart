@@ -152,7 +152,7 @@ class _ProductScreenState extends State<ProductScreen> {
                         : Colors.transparent,
                     width: 2),
               ),
-              padding: EdgeInsets.all(4),
+              padding: const EdgeInsets.all(4),
               child: Container(
                 width: 35,
                 height: 35,

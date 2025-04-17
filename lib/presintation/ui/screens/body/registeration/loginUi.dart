@@ -80,8 +80,8 @@ class _LoginUi extends State<LoginUi> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  _Internet("Google", AppImages.google),
-                  _Internet("Facebook", AppImages.facebook),
+                  _internet("Google", AppImages.google),
+                  _internet("Facebook", AppImages.facebook),
                 ],
               ),
               const SizedBox(height: 30),
@@ -121,7 +121,7 @@ class _LoginUi extends State<LoginUi> {
       ),
     );
   }
-  _Internet(String title, String image) =>
+  _internet(String title, String image) =>
       GestureDetector(
         onTap: () {},
         child: Container(

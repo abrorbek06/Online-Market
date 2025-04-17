@@ -2,7 +2,8 @@ import 'package:dokon/presintation/ui/resourses/images/app_images.dart';
 import 'package:dokon/presintation/ui/screens/body/primary_screens/Account/my_account.dart';
 import 'package:dokon/presintation/ui/screens/body/primary_screens/my_cart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+
 
 import '../../resourses/colors/app_colors.dart';
 import '../body/primary_screens/Wishlist/wishlist.dart';

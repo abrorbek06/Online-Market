@@ -81,7 +81,7 @@ class _MyAccountState extends State<MyAccount> {
                 () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => MyOrders(),
+                      builder: (context) => const MyOrders(),
                     ),
                   );
                 },
